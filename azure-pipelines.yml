@@ -15,7 +15,7 @@ resources:
       image: ubuntu-latest
       options: --interactive --tty
 
-job:
+jobs:
   - job: Base job
     container:
         container: ubuntu-latest
