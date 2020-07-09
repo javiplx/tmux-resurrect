@@ -17,8 +17,7 @@ resources:
 
 jobs:
   - job: Base job
-    container:
-        container: ubuntu-latest
+    container: ubuntu-latest
     steps:
       - checkout: self
         submodules: true
