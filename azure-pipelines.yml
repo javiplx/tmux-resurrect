@@ -20,3 +20,6 @@ steps:
 
 - script: tests/run_tests_in_isolation
   displayName: Run tests
+  container:
+    image: ubuntu-latest
+    options: --interactive --tty
