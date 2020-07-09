@@ -10,11 +10,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- checkout: self
+  submodules: true
+
 - script: |
     sudo apt install -y expect
-    git submodule init lib/tmux-test
-    ls -alt lib/tmux-test/
-    git submodule update lib/tmux-test
     lib/tmux-test/setup
   displayName: Test setup
 
