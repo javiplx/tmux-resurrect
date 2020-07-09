@@ -1,0 +1,21 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- hardening/ci
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    git submodule init lib/tmux-test
+    ls -alt lib/tmux-test/
+    git submodule update lib/tmux-test
+    lib/tmux-test/setup
+  displayName: Test setup
+
+- script: tests/run_tests_in_isolation
+  displayName: Run tests
