@@ -9,17 +9,24 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- checkout: self
-  submodules: true
+resources:
+  containers:
+    - container: ubuntu-latest
+      image: ubuntu-latest
+      options: --interactive --tty
 
-- script: |
-    sudo apt install -y expect
-    lib/tmux-test/setup
-  displayName: Test setup
+job:
+  - job: Base job
+    container:
+        container: ubuntu-latest
+    steps:
+      - checkout: self
+        submodules: true
 
-- script: tests/run_tests_in_isolation
-  displayName: Run tests
-  container:
-    image: ubuntu-latest
-    options: --interactive --tty
+      - script: |
+          sudo apt install -y expect
+          lib/tmux-test/setup
+        displayName: Test setup
+
+      - script: tests/run_tests_in_isolation
+        displayName: Run tests
