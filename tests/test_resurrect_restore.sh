@@ -16,6 +16,7 @@ setup_before_restore() {
 }
 
 restore_tmux_environment_and_save_again() {
+	set_screen_dimensions_helper
 	$CURRENT_DIR/helpers/restore_and_save_tmux_test_environment.exp
 }
 

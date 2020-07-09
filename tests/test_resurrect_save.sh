@@ -6,6 +6,7 @@ source $CURRENT_DIR/helpers/helpers.sh
 source $CURRENT_DIR/helpers/resurrect_helpers.sh
 
 create_tmux_test_environment_and_save() {
+	set_screen_dimensions_helper
 	$CURRENT_DIR/helpers/create_and_save_tmux_test_environment.exp
 }
 
