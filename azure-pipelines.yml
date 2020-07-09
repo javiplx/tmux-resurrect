@@ -16,7 +16,7 @@ resources:
       options: --interactive --tty
 
 jobs:
-  - job: Base job
+  - job: base_job
     container: ubuntu-latest
     steps:
       - checkout: self
